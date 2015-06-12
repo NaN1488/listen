@@ -259,7 +259,6 @@ module Listen
       @adapter_class ||= Adapter.select(options)
     end
 
-
     attr_reader :adapter
     attr_reader :queue_optimizer
     attr_reader :event_queue
