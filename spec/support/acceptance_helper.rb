@@ -194,7 +194,8 @@ class ListenerWrapper
       yield
 
       # Polling sleep (default: 1s)
-      adapter = @listener.send(:adapter)
+      backend = @listener.instance_variable_get(:@backend)
+      adapter = backend.instance_variable_get(:@adapter)
       sleep(adapter.options.latency) if adapter.is_a?(Listen::Adapter::Polling)
 
       # Lag should include:
